@@ -51,7 +51,7 @@ footer .footer_text {
     margin-top: 20px;
 }
 
-footer .footer_button {
+.footer_button {
     display: inline-block;
     margin-top: 20px;
     padding: 15px 40px;
@@ -60,8 +60,36 @@ footer .footer_button {
     border: 0;
     cursor: pointer;
     position: relative;
-    transition: all 3s ease-in-out;
-    z-index: 1;
+    z-index: 2;
+}
+
+.footer_button::before {
+    content: "";
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    height: 100%;
+    width: 0;
+    background-color: #790101;
+    z-index: -1;
+    pointer-events: none;
+    transition: width 0.3s ease-in-out;
+}
+
+.footer_button.active::before {
+    width: 100%;
+}
+
+.footer_button::after {
+    content: "";
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #c00;
+    z-index: -2;
+    pointer-events: none;
 }
 
 .block {
@@ -80,6 +108,8 @@ footer .footer_button {
 .main_slogan {
     width: 40%;
     box-sizing: border-box;
+    margin-left: -100%;
+    transition: margin-left 1s ease-in-out;
 }
 
 .main_image-block {
@@ -92,6 +122,8 @@ footer .footer_button {
     float: right;
     text-align: justify;
     width: 50%;
+    margin-right: -100%;
+    transition: margin-right 1s ease-in-out;
 }
 
 .main_about-games {
@@ -99,10 +131,13 @@ footer .footer_button {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
 .main_image {
     height: 500px;
+    transition: height .5s ease-in-out;
 }
 
 .main_about-image {
@@ -114,6 +149,10 @@ footer .footer_button {
     transition: opacity 0.5s ease-in-out;
 }
 
+.about_screens {
+    transition: opacity 1s ease-in-out;
+}
+
 .about_dlc {
     margin-top: 2%;
     transition: opacity 1.5s ease-in-out;
@@ -122,12 +161,14 @@ footer .footer_button {
 .about {
     width: 37%;
     text-align: center;
+    opacity: 0;
 }
 
 .about_weapon {
     text-align: left;
     margin: 20px auto;
     width: 45%;
+    opacity: 1;
 }
 
 .weapon span {
@@ -145,4 +186,22 @@ footer .footer_button {
     margin-top: 10px;
     position: relative;
     transition: opacity 0.4s ease-in-out;
+    opacity: 0;
+    position: absolute;
+}
+
+.arrow {
+    border: 10px solid transparent; 
+    border-left: 15px solid white;
+    transition: all 0.3s ease-in-out;
+    margin-left: 10px ;
+}
+
+.arrow.active {
+    transform: rotate(90deg);
+}
+
+.weapon_list.active {
+    opacity: 1;
+    position: relative;
 }
