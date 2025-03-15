@@ -23,9 +23,7 @@ document.addEventListener('scroll', function(event) {
     }
 
     let mainAbout = document.querySelector(".main_about-games");
-    let rest1 = mainAbout.getBoundingClientRect()
-
-    if (rest1.y <= 50) {
+    if (rest.bottom <= 50) {
         mainAbout.style.opacity = "1"
         let aboutBlock = document.querySelector(".main_about-games")
         let aboutBlockElements = aboutBlock.querySelectorAll(".about")

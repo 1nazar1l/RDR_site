@@ -41,6 +41,8 @@ footer {
     background-position: center;
     background-size: cover;
     width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 footer h2 {
@@ -169,6 +171,7 @@ footer .footer_text {
     margin: 20px auto;
     width: 45%;
     opacity: 1;
+    overflow: hidden;
 }
 
 .weapon span {
@@ -179,15 +182,13 @@ footer .footer_text {
     display: flex;
     align-items: center;
     cursor: pointer;
-    transition: opacity 0.4s ease-in-out;
 }
 
 .weapon_list {
-    margin-top: 10px;
-    position: relative;
-    transition: opacity 0.4s ease-in-out;
     opacity: 0;
     position: absolute;
+    margin-top: -10%;
+    transition: margin-top 0.4s ease-in-out;
 }
 
 .arrow {
@@ -204,4 +205,5 @@ footer .footer_text {
 .weapon_list.active {
     opacity: 1;
     position: relative;
+    margin-top: 0px;
 }
